@@ -8,3 +8,5 @@ rm laravel_tmp/ -rf
 ls
 composer install
 php artisan migrate
+composer require laravel/breeze --dev
+php artisan breeze:install vue
