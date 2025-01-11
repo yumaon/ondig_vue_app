@@ -10,3 +10,7 @@ composer install
 php artisan migrate
 composer require laravel/breeze --dev
 php artisan breeze:install vue
+composer dump-autoload
+php artisan migrate:status
+php artisan migrate:rollback
+php artisan migrate
