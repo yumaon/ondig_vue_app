@@ -14,3 +14,17 @@ composer dump-autoload
 php artisan migrate:status
 php artisan migrate:rollback
 php artisan migrate
+php artisan make:model ArtistUser -m
+php artisan migrate
+php artisan make:controller ArtistUser/Auth/AuthenticatedSessionController
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan make:controller ArtistUser/Auth/RegisteredUserController
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list

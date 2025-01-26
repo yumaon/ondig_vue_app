@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Auth;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -29,11 +30,25 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $user = $request->user();
+        $role = null;
+
+        if (Auth::guard('artist')->check()) {
+            $role = 'artistUser';
+        } elseif (Auth::guard('web')->check()) {
+            $role = 'publicUser';
+        }
+
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => $request->user(),
-            ],
-        ];
+                'user' => $user ? [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'role' => $role,
+                ] : null,
+                ],
+            ];
     }
 }
