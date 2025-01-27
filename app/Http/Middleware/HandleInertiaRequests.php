@@ -36,7 +36,7 @@ class HandleInertiaRequests extends Middleware
         if (Auth::guard('artist')->check()) {
             $role = 'artistUser';
         } elseif (Auth::guard('web')->check()) {
-            $role = 'publicUser';
+            $role = 'generalUser';
         }
 
         return [
@@ -48,7 +48,7 @@ class HandleInertiaRequests extends Middleware
                     'email' => $user->email,
                     'role' => $role,
                 ] : null,
-                ],
-            ];
+            ],
+        ];
     }
 }

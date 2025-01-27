@@ -66,7 +66,7 @@ console.log("Auth", page.props.auth);
 
                   <template #content>
                     <!-- PublicUser用メニュー -->
-                    <div v-if="page.props.auth.user.role == 'publicUser'">
+                    <div v-if="page.props.auth.user.role == 'generalUser'">
                       <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
                       <DropdownLink :href="route('logout')" method="post" as="button">
                         Log Out

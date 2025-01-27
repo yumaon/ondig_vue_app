@@ -28,3 +28,6 @@ php artisan route:list
 php artisan route:list
 php artisan route:list
 php artisan route:list
+php artisan make:controller Home
+php artisan make:migration rename_users_table_to_general_users
+php artisan migrate
