@@ -11,10 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('general_users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('prefecture_id')->constrained('prefectures');
+            $table->foreignId('city_id')->constrained('cities');
+            $table->string('address_detail')->nullable();
+            $table->decimal('latitude', 10, 7)->nullable()->comment('緯度');
+            $table->decimal('longitude', 10, 7)->nullable()->comment('経度');
             $table->string('email')->unique();
+            $table->string('introduction')->nullable();
+            $table->string('profile_image')->nullable();
+            $table->boolean('is_deleted')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -42,7 +50,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('general_users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }

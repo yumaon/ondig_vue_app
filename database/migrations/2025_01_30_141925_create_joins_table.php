@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('relationships', function (Blueprint $table) {
+        Schema::create('joins', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('artist_user_id')->constrained('artist_users')->nullable()->onDelete('cascade');
+            $table->foreignId('general_user_id')->constrained('general_users')->nullable()->onDelete('cascade');
+            $table->foreignId('room_id')->constrained('rooms')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('relationships');
+        Schema::dropIfExists('joins');
     }
 };

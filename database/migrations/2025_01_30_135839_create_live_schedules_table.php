@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('live_schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('artist_user_id')->constrained('artist_users')->onDelete('cascade');
+            $table->string('title');
+            $table->string('description', 1000)->nullable();
+            $table->string('image')->nullable();
+            $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->timestamps();
         });
     }

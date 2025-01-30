@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('joins', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('artist_user_id')->constrained('artist_users')->onDelete('cascade');
+            $table->string('name');
+            $table->string('image')->nullable();
+            $table->string('description', 100)->nullable();
+            $table->integer('price')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('joins');
+        Schema::dropIfExists('items');
     }
 };

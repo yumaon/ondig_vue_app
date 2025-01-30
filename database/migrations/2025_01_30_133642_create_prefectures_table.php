@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('favorites', function (Blueprint $table) {
+        Schema::create('prefectures', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 4);
+            $table->string('code', 2);
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('favorites');
+        Schema::dropIfExists('prefectures');
     }
 };

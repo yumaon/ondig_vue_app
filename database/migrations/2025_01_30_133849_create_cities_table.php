@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('genres', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('prefecture_id')->constrained();
+            $table->string('name');  // 例：「渋谷区」「新宿区」「横浜市」「町田市」
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('genres');
+        Schema::dropIfExists('cities');
     }
 };

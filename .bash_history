@@ -61,3 +61,39 @@ php artisan make:controller ArtistUser/FavoriteController -r
 php artisan make:controller ArtistUser/RelationshipController -r
 php artisan make:controller ArtistUser/RoomController -r
 php artisan make:controller ArtistUser/MessageController -r
+php artisan migrate:rollback
+php artisan migrate:status
+php artisan migrate:rollback
+php artisan migrate:rollback
+php artisan migrate:status
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate
+php artisan migrate:status
+php artisan migrate:status
+php artisan make:migration create_prefecture_table
+php artisan make:migration create_prefectures_table
+php artisan make:migration create_cities_table
+php artisan make:migration create_genres_table
+php artisan make:migration create_items_Table
+php artisan make:migration create_items_Table
+php artisan make:migration create_live_schedules_table
+php artisan make:migration create_topics_table
+php artisan make:migration create_topic_comments_table
+php artisan make:migration create_favorites_table
+php artisan make:migration create_relationships_table
+php artisan make:migration create_rooms_table
+php artisan make:migration create_joins_table
+php artisan make:migration create_messages_table
+php artisan migrate:status
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:status
+php artisan migrate:rollback
+php artisan migrate:rollback
+php artisan migrate:status
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate

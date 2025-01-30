@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('room_id')->constrained('rooms')->onDelete('cascade');
+            $table->foreignId('artist_user_id')->constrained('artist_users')->nullable()->onDelete('cascade');
+            $table->foreignId('general_user_id')->constrained('general_users')->nullable()->onDelete('cascade');
+            $table->string('body', 1000);
             $table->timestamps();
         });
     }
