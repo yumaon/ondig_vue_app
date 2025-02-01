@@ -10,7 +10,7 @@ use Inertia\Inertia;
 use Inertia\Response;
 use App\Http\Requests\ArtistUser\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
-
+use Illuminate\Support\Facades\DB;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -30,9 +30,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate(); // LoginRequest 内で guard を指定
+        $request->authenticate();
 
         $request->session()->regenerate();
+
+        // セッションにuser_typeを設定
+        DB::table('sessions')
+            ->where('id', session()->getId())
+            ->update(['user_type' => 'artist_user']);
 
         return redirect()->intended(route('artist.dashboard'));
     }
