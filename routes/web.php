@@ -16,7 +16,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth:web,artist', 'verified'])->name('dashboard');
+})->middleware(['auth:general,artist', 'verified'])->name('dashboard');
 
 Route::prefix('artist')->name('artist.')->group(base_path('routes/artist.php'));
 

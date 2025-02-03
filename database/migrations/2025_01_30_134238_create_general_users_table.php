@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('general_users', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->string('name');
             $table->foreignId('prefecture_id')->constrained('prefectures');
             $table->foreignId('city_id')->constrained('cities');
@@ -38,6 +39,7 @@ return new class extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
+            $table->string('user_type')->nullable();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
             $table->longText('payload');

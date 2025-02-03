@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ArtistUser;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -32,11 +33,17 @@ class HandleInertiaRequests extends Middleware
     {
         $user = $request->user();
         $role = null;
+        $name = null;
 
-        if (Auth::guard('artist')->check()) {
-            $role = 'artistUser';
-        } elseif (Auth::guard('web')->check()) {
-            $role = 'generalUser';
+        if ($user) {
+            if (Auth::guard('general')->check()) {
+                $role = 'generalUser';
+                $name = $user->name;
+            } elseif (Auth::guard('artist')->check()) {
+                $role = 'artistUser';
+                $artist = ArtistUser::find($user->id);
+                $name = $artist->artist_name;
+            }
         }
 
         return [
@@ -44,7 +51,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $user ? [
                     'id' => $user->id,
-                    'name' => $user->name,
+                    'name' => $name,
                     'email' => $user->email,
                     'role' => $role,
                 ] : null,

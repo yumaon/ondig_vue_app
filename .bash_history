@@ -102,3 +102,20 @@ php artisan migrate
 php artisan migrate:rollback
 php artisan migrate
 php artisan migrate
+php artisan route:list
+php artisan migrate:rollback
+php artisan migrate
+php artisan make:model City
+php artisan make:model Prefecture
+php artisan route:list 
+php artisan make:seeder PrefectureSeeder
+php artisan db:seed --class=PrefectureSeeder
+php artisan config:clear
+php artisan route:clear
+php artisan cache:clear
+tail -f storage/logs/laravel.log
+php artisan route:list
+tail -f storage/logs/laravel.log
+php artisan make:seeder GenreSeeder
+php artisan db:seed --class=GenreSeeder
+php artisan route:list

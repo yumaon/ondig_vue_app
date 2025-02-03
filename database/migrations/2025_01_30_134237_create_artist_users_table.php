@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('artist_users', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->foreignId('genre_id')->constrained('genres');
             $table->foreignId('prefecture_id')->constrained('prefectures');
             $table->foreignId('city_id')->constrained('cities');

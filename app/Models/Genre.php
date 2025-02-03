@@ -9,4 +9,13 @@ class Genre extends Model
 {
     /** @use HasFactory<\Database\Factories\GenreFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+    ];
+
+    public function artistUsers()
+    {
+        return $this->hasMany(ArtistUser::class);
+    }
 }
