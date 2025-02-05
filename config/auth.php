@@ -74,11 +74,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\ArtistUser::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
@@ -128,5 +123,13 @@ return [
     */
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10800),
+
+    'redirects' => [
+        'login' => [
+            'general' => '/dashboard',
+            'artist' => '/artist/dashboard'
+        ],
+        'logout' => '/',
+    ],
 
 ];
