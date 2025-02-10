@@ -24,8 +24,11 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                $redirect = config('auth.redirects.login.' . ($guard ?? 'web'));
-                return redirect($redirect);
+                if ($guard === 'general') {
+                    return redirect()->route('general.dashboard');
+                } elseif ($guard === 'artist') {
+                    return redirect()->route('artist.dashboard');
+                }
             }
         }
 

@@ -23,14 +23,14 @@ console.log("Auth", page.props.auth);
             <div class="flex">
               <!-- Logo -->
               <div class="flex shrink-0 items-center">
-                <Link :href="route('dashboard')">
+                <Link :href="route('welcome')">
                   <ApplicationLogo class="block h-9 w-auto fill-current text-gray-800" />
                 </Link>
               </div>
 
               <!-- Navigation Links -->
               <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                <NavLink :href="route('welcome')" :active="route().current('welcome')">
                   Dashboard
                 </NavLink>
               </div>
@@ -68,7 +68,7 @@ console.log("Auth", page.props.auth);
                     <!-- PublicUser用メニュー -->
                     <div v-if="page.props.auth.user.role == 'generalUser'">
                       <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
-                      <DropdownLink :href="route('logout')" method="post" as="button">
+                      <DropdownLink :href="route('general.logout')" method="post" as="button">
                         Log Out
                       </DropdownLink>
                     </div>
@@ -125,7 +125,7 @@ console.log("Auth", page.props.auth);
           class="sm:hidden"
         >
           <div class="space-y-1 pb-3 pt-2">
-            <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+            <ResponsiveNavLink :href="route('welcome')" :active="route().current('welcome')">
               Dashboard
             </ResponsiveNavLink>
           </div>

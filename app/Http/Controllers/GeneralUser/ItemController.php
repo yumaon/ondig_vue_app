@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\General;
+namespace App\Http\Controllers\GeneralUser;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreFavoriteRequest;
-use App\Http\Requests\UpdateFavoriteRequest;
-use App\Models\Favorite;
+use App\Http\Requests\StoreItemRequest;
+use App\Http\Requests\UpdateItemRequest;
+use App\Models\Item;
 
-class FavoriteController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class FavoriteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFavoriteRequest $request)
+    public function store(StoreItemRequest $request)
     {
         //
     }
@@ -36,7 +36,7 @@ class FavoriteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Favorite $favorite)
+    public function show(Item $item)
     {
         //
     }
@@ -44,7 +44,7 @@ class FavoriteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Favorite $favorite)
+    public function edit(Item $item)
     {
         //
     }
@@ -52,7 +52,7 @@ class FavoriteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFavoriteRequest $request, Favorite $favorite)
+    public function update(UpdateItemRequest $request, Item $item)
     {
         //
     }
@@ -60,7 +60,7 @@ class FavoriteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Favorite $favorite)
+    public function destroy(Item $item)
     {
         //
     }

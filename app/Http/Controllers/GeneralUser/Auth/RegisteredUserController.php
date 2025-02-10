@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\GeneralUser\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\GeneralUser;
@@ -24,7 +24,7 @@ class RegisteredUserController extends Controller
     public function create(): Response
     {
         $prefectures = Prefecture::all();
-        return Inertia::render('Auth/Register', compact('prefectures'));
+        return Inertia::render('General/Auth/Register', compact('prefectures'));
     }
 
     /**
@@ -74,7 +74,7 @@ class RegisteredUserController extends Controller
 
             Auth::guard('general')->login($user);
 
-            return redirect(route('dashboard', absolute: false));
+            return redirect(route('general.dashboard', absolute: false));
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('error', '登録に失敗しました。');

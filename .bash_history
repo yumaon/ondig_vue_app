@@ -119,3 +119,13 @@ tail -f storage/logs/laravel.log
 php artisan make:seeder GenreSeeder
 php artisan db:seed --class=GenreSeeder
 php artisan route:list
+php artisan route:list
+php artisan make:middleware RedirectIfAuthenticated
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artistn route:list
+php artisan route:list
+php artisan route:clear
+php artisan cache:clear
+php artisan config:clear

@@ -40,7 +40,7 @@ const form = useForm({
 const submit = () => {
   console.log("Form submitted:", form.data()); // デバッグ用
 
-  form.post(route("register"), {
+  form.post(route("general.register.store"), {
     onSuccess: () => {
       console.log("Success!");
     },
@@ -179,7 +179,7 @@ const submit = () => {
 
       <div class="mt-4 flex items-center justify-end">
         <Link
-          :href="route('login')"
+          :href="route('general.login')"
           class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           すでにアカウントをお持ちの方

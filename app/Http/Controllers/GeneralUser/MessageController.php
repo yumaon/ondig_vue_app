@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\General;
+namespace App\Http\Controllers\GeneralUser;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreMessageRequest;
+use App\Http\Requests\UpdateMessageRequest;
+use App\Models\Message;
 
-class ArtistUserController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +28,7 @@ class ArtistUserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreMessageRequest $request)
     {
         //
     }
@@ -34,7 +36,7 @@ class ArtistUserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Message $message)
     {
         //
     }
@@ -42,7 +44,7 @@ class ArtistUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Message $message)
     {
         //
     }
@@ -50,7 +52,7 @@ class ArtistUserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateMessageRequest $request, Message $message)
     {
         //
     }
@@ -58,7 +60,7 @@ class ArtistUserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Message $message)
     {
         //
     }

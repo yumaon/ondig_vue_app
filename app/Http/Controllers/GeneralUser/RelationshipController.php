@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\General;
+namespace App\Http\Controllers\GeneralUser;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreLiveScheduleRequest;
-use App\Http\Requests\UpdateLiveScheduleRequest;
-use App\Models\LiveSchedule;
+use App\Http\Requests\StoreRelationshipRequest;
+use App\Http\Requests\UpdateRelationshipRequest;
+use App\Models\Relationship;
 
-class LiveScheduleController extends Controller
+class RelationshipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class LiveScheduleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLiveScheduleRequest $request)
+    public function store(StoreRelationshipRequest $request)
     {
         //
     }
@@ -36,7 +36,7 @@ class LiveScheduleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LiveSchedule $liveSchedule)
+    public function show(Relationship $relationship)
     {
         //
     }
@@ -44,7 +44,7 @@ class LiveScheduleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(LiveSchedule $liveSchedule)
+    public function edit(Relationship $relationship)
     {
         //
     }
@@ -52,7 +52,7 @@ class LiveScheduleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLiveScheduleRequest $request, LiveSchedule $liveSchedule)
+    public function update(UpdateRelationshipRequest $request, Relationship $relationship)
     {
         //
     }
@@ -60,7 +60,7 @@ class LiveScheduleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(LiveSchedule $liveSchedule)
+    public function destroy(Relationship $relationship)
     {
         //
     }

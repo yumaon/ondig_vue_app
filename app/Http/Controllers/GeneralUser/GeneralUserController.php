@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\General;
+namespace App\Http\Controllers\GeneralUser;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreTopicRequest;
-use App\Http\Requests\UpdateTopicRequest;
-use App\Models\Topic;
+use Illuminate\Http\Request;
 
-class TopicController extends Controller
+class GeneralUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +26,7 @@ class TopicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTopicRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -36,7 +34,7 @@ class TopicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Topic $topic)
+    public function show(string $id)
     {
         //
     }
@@ -44,7 +42,7 @@ class TopicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Topic $topic)
+    public function edit(string $id)
     {
         //
     }
@@ -52,7 +50,7 @@ class TopicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTopicRequest $request, Topic $topic)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -60,7 +58,7 @@ class TopicController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Topic $topic)
+    public function destroy(string $id)
     {
         //
     }

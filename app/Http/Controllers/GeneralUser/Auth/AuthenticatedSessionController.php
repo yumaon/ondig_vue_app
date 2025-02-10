@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\GeneralUser\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
@@ -19,7 +19,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Auth/Login', [
+        return Inertia::render('General/Auth/Login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
         ]);
@@ -39,7 +39,7 @@ class AuthenticatedSessionController extends Controller
             ->where('id', session()->getId())
             ->update(['user_type' => 'general_user']);
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('general.dashboard', absolute: false));
     }
 
     /**

@@ -126,7 +126,7 @@ return [
 
     'redirects' => [
         'login' => [
-            'general' => '/dashboard',
+            'general' => '/general/dashboard',
             'artist' => '/artist/dashboard'
         ],
         'logout' => '/',
