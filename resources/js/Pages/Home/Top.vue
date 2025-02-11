@@ -62,35 +62,37 @@ const changeTab = (navName) => {
           </nav>
 
           <main>
-            <div v-if="currentTab === 'login'" class="flex flex-col items-center space-y-6">
-              <Link
-                :href="route('general.login')"
-                class="rounded-full px-8 py-4 transition bg-white/20 hover:bg-white/30 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                GeneralUser Log in
-              </Link>
-              <Link
-                :href="route('artist.login')"
-                class="rounded-full px-8 py-4 transition bg-white/20 hover:bg-white/30 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                ArtistUser Log in
-              </Link>
-            </div>
+            <transition name="fade" mode="out-in">
+              <div v-if="currentTab === 'login'" class="flex flex-col items-center space-y-6">
+                <Link
+                  :href="route('general.login')"
+                  class="rounded-full px-8 py-4 transition bg-white/20 hover:bg-white/30 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  GeneralUser Log in
+                </Link>
+                <Link
+                  :href="route('artist.login')"
+                  class="rounded-full px-8 py-4 transition bg-white/20 hover:bg-white/30 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  ArtistUser Log in
+                </Link>
+              </div>
 
-            <div v-if="currentTab === 'register'" class="flex flex-col items-center space-y-6">
-              <Link
-                :href="route('general.register')"
-                class="rounded-full px-8 py-4 transition bg-white/20 hover:bg-white/30 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                GeneralUser Register
-              </Link>
-              <Link
-                :href="route('artist.register')"
-                class="rounded-full px-8 py-4 transition bg-white/20 hover:bg-white/30 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                ArtistUser Register
-              </Link>
-            </div>
+              <div v-if="currentTab === 'register'" class="flex flex-col items-center space-y-6">
+                <Link
+                  :href="route('general.register')"
+                  class="rounded-full px-8 py-4 transition bg-white/20 hover:bg-white/30 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  GeneralUser Register
+                </Link>
+                <Link
+                  :href="route('artist.register')"
+                  class="rounded-full px-8 py-4 transition bg-white/20 hover:bg-white/30 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  ArtistUser Register
+                </Link>
+              </div>
+            </transition>
           </main>
         </div>
 
@@ -101,3 +103,26 @@ const changeTab = (navName) => {
     </div>
   </div>
 </template>
+<style>
+/* フェードイン用 */
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+
+/* フェードアウト用 */
+.fade-leave-from {
+  opacity: 1;
+}
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
