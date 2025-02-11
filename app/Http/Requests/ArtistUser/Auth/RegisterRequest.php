@@ -19,7 +19,6 @@ class RegisterRequest extends FormRequest
       'address_detail' => ['nullable', 'string', 'max:255'],
       'latitude' => ['nullable', 'decimal:10,7'],
       'longitude' => ['nullable', 'decimal:10,7'],
-      'rep_name' => ['required', 'string', 'max:255'],
       'artist_name' => ['required', 'string', 'max:255'],
       'introduction' => ['nullable', 'string', 'max:255'],
       'youtube_url' => ['nullable', 'string', 'max:255'],

@@ -129,3 +129,12 @@ php artisan route:list
 php artisan route:clear
 php artisan cache:clear
 php artisan config:clear
+php artisan route:list
+php artisan migrate:rollback
+php artisan migrate
+php artisan db:seed --class=PrefectureSeeder
+php artisan migrate:rollback
+php artisan migrate
+php artisan db:seed --class=PrefectureSeeder
+history
+php artisan db:seed --class=GenreSeeder

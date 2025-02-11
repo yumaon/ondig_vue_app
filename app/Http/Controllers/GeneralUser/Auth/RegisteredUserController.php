@@ -37,8 +37,8 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:' . GeneralUser::class,
-            'prefecture_id' => 'required|exists:prefectures,id',
-            'city_name' => 'required|string|max:255',
+            'prefecture_id' => 'nullable|exists:prefectures,id',
+            'city_name' => 'nullable|string|max:255',
             'address_detail' => 'nullable|string|max:255',
             'latitude' => 'nullable|decimal:10,7',
             'longitude' => 'nullable|decimal:10,7',
@@ -49,16 +49,20 @@ class RegisteredUserController extends Controller
 
         DB::beginTransaction();
         try {
-            $city = City::firstOrCreate([
-                'prefecture_id' => $request->prefecture_id,
-                'name' => $request->city_name,
-            ]);
+            $cityId = null;
+            if ($request->prefecture_id && $request->city_name) {
+                $city = City::firstOrCreate([
+                    'prefecture_id' => $request->prefecture_id,
+                    'name' => $request->city_name,
+                ]);
+                $cityId = $city->id;
+            }
 
             $user = GeneralUser::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'prefecture_id' => $request->prefecture_id,
-                'city_id' => $city->id,
+                'city_id' => $cityId,
                 'address_detail' => $request->address_detail,
                 'latitude' => $request->latitude,
                 'longitude' => $request->longitude,
