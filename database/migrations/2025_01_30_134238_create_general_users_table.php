@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('prefecture_id')->nullable()->constrained('prefectures');
             $table->foreignId('city_id')->nullable()->constrained('cities');
-            $table->string('address_detail')->nullable();
             $table->decimal('latitude', 10, 7)->nullable()->comment('緯度');
             $table->decimal('longitude', 10, 7)->nullable()->comment('経度');
             $table->string('email')->unique();

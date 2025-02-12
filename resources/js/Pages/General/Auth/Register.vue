@@ -21,7 +21,6 @@ const form = useForm({
   password_confirmation: "",
   prefecture_id: "",
   city_name: "",
-  address_detail: "",
   latitude: null,
   longitude: null,
   introduction: "",
@@ -193,19 +192,6 @@ const submit = () => {
                 :disabled="form.prefecture_id == ''"
               />
               <InputError class="mt-2" :message="form.errors.city_name" />
-            </div>
-
-            <div>
-              <InputLabel for="address_detail" value="Address Detail" />
-              <TextInput
-                id="address_detail"
-                type="text"
-                class="mt-1 block w-full bg-white/20 text-white placeholder-gray-300"
-                v-model="form.address_detail"
-                placeholder="例: 1丁目2番地3号"
-                :disabled="form.prefecture_id == ''"
-              />
-              <InputError class="mt-2" :message="form.errors.address_detail" />
             </div>
 
             <div class="flex justify-between mt-4">

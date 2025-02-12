@@ -138,3 +138,7 @@ php artisan migrate
 php artisan db:seed --class=PrefectureSeeder
 history
 php artisan db:seed --class=GenreSeeder
+php artisan migrate:rollback
+php artisan migrate
+php artisan db:seed --class=GenreSeeder
+php artisan db:seed --class=PrefectureSeeder

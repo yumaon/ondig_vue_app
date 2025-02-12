@@ -43,7 +43,6 @@ class GeneralUser extends Authenticatable
         'password',
         'prefecture_id',
         'city_id',
-        'address_detail',
         'latitude',
         'longitude',
         'introduction',
