@@ -38,16 +38,19 @@ class RegisteredUserController extends Controller
 
         DB::beginTransaction();
         try {
-            $city = City::firstOrCreate([
-                'prefecture_id' => $request->prefecture_id,
-                'name' => $request->city_name,
-            ]);
+            $cityId = null;
+            if ($request->prefecture_id && $request->city_name) {
+                $city = City::firstOrCreate([
+                    'prefecture_id' => $request->prefecture_id,
+                    'name' => $request->city_name,
+                ]);
+                $cityId = $city->id;
+            }
 
             $artist = ArtistUser::create([
                 'genre_id' => $validated['genre_id'],
                 'prefecture_id' => $validated['prefecture_id'],
-                'city_id' => $city->id,
-                'address_detail' => $validated['address_detail'],
+                'city_id' => $cityId,
                 'latitude' => $validated['latitude'],
                 'longitude' => $validated['longitude'],
                 'artist_name' => $validated['artist_name'],

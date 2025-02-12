@@ -14,9 +14,8 @@ class RegisterRequest extends FormRequest
   {
     return [
       'genre_id' => ['required', 'exists:genres,id'],
-      'prefecture_id' => ['required', 'exists:prefectures,id'],
-      'city_name' => ['required', 'string', 'max:255'],
-      'address_detail' => ['nullable', 'string', 'max:255'],
+      'prefecture_id' => ['nullable', 'exists:prefectures,id'],
+      'city_name' => ['nullable', 'string', 'max:255'],
       'latitude' => ['nullable', 'decimal:10,7'],
       'longitude' => ['nullable', 'decimal:10,7'],
       'artist_name' => ['required', 'string', 'max:255'],
