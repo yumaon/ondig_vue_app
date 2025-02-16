@@ -1,7 +1,17 @@
 <?php
 
+use App\Http\Controllers\ArtistUser\ArtistUserController;
 use App\Http\Controllers\ArtistUser\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ArtistUser\Auth\RegisteredUserController;
+use App\Http\Controllers\ArtistUser\FavoriteController;
+use App\Http\Controllers\ArtistUser\GeneralUserController;
+use App\Http\Controllers\ArtistUser\ItemController;
+use App\Http\Controllers\ArtistUser\LiveScheduleController;
+use App\Http\Controllers\ArtistUser\MessageController;
+use App\Http\Controllers\ArtistUser\ProfileController;
+use App\Http\Controllers\ArtistUser\RoomController;
+use App\Http\Controllers\ArtistUser\TopicCommentController;
+use App\Http\Controllers\ArtistUser\TopicController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -14,6 +24,16 @@ Route::middleware('guest:artist,general')->group(function () {
 
 Route::middleware('auth:artist')->group(function () {
   Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout'); // Artistログアウト処理
+  Route::resource('profiles', ProfileController::class)->only('show', 'edit', 'update');
+  Route::resource('general-users', GeneralUserController::class)->only('index', 'show');
+  Route::resource('items', ItemController::class);
+  Route::resource('live-schedules', LiveScheduleController::class);
+  Route::resource('artist-users', ArtistUserController::class);
+  Route::resource('topics', TopicController::class);
+  Route::resource('topic-comments', TopicCommentController::class)->only('store', 'destroy');
+  Route::resource('favorites', FavoriteController::class)->only('index', 'store', 'destroy');
+  Route::resource('rooms', RoomController::class)->only('store', 'index', 'show');
+  Route::resource('messages', MessageController::class)->only('create');
 });
 
 // ArtistUser 用ダッシュボード（必要に応じて追加）

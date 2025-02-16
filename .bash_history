@@ -142,3 +142,15 @@ php artisan migrate:rollback
 php artisan migrate
 php artisan db:seed --class=GenreSeeder
 php artisan db:seed --class=PrefectureSeeder
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list
+history
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list
+php artisan route:list
