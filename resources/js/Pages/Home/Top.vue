@@ -35,6 +35,11 @@ const changeTab = (navName) => {
             </svg>
             <span class="text-3xl font-extrabold">Ondig</span>
           </div>
+          <nav class="flex space-x-4">
+            <Link :href="route('about')" class="text-white hover:text-gray-300 transition mr-5">
+              About
+            </Link>
+          </nav>
         </header>
 
         <div class="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 border border-white/20">
